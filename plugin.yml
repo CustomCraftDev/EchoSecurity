@@ -1,0 +1,6 @@
+name: EchoSecurity
+main: Security
+description: adds Faction security to the EchoPet plugin 
+version: 1.0
+depend: [Factions, EchoPet, MassiveCore]
+author: undeaD_D
