@@ -65,17 +65,4 @@ public class Security extends JavaPlugin implements Listener{
 		return true;
 	}
 
-}			       
-
-
-
-
-
-
-/*
-if(!((!faction.getName().equalsIgnoreCase("Warzone") || (!faction.getRelationTo(faction).isFriend() || (faction.hasLandInflation()) || ()))) {
-    e.getPet().removeRider();
-    e.setCancelled(true);
 }
-
-*/
