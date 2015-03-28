@@ -27,11 +27,11 @@ public class Security extends JavaPlugin implements Listener{
 			        Faction faction = BoardColl.get().getFactionAt(PS.valueOf(p.getLocation()));
 			        String name = ChatColor.stripColor(faction.getName());
 			        if(!name.equalsIgnoreCase("Wilderness") && !name.equalsIgnoreCase("SafeZone") && !name.equalsIgnoreCase("WarZone")) {
-			        	// player is in custom faction land ...
-			        	// TODO check is needed if player can build here !?
+			        	if(checkFaction(p, faction)) {
 			        		p.sendMessage(ChatColor.RED + "[EchoSecurity] You cant ride your Pet here.");
 			        	    e.getPet().removeRider();
 			        	    e.setCancelled(true);
+			        	}
 			        }
         		}
         }catch(Exception ex) {}
@@ -46,16 +46,25 @@ public class Security extends JavaPlugin implements Listener{
 			        Faction faction = BoardColl.get().getFactionAt(PS.valueOf(p.getLocation()));
 			        String name = ChatColor.stripColor(faction.getName());
 			        if(!name.equalsIgnoreCase("Wilderness") && !name.equalsIgnoreCase("SafeZone") && !name.equalsIgnoreCase("WarZone")) {
-			        	// player is in custom faction land ...
-			        	// TODO check is needed if player can build here !?
+			        	if(checkFaction(p, faction)) {
 			        		p.sendMessage(ChatColor.RED + "[EchoSecurity] You cant interact with your Pet here.");
 			        	    e.setCancelled(true);
+			        	}
 			        }
 	    		}
         }catch(Exception ex) {}  
 	}
 		
 	
+	private boolean checkFaction(Player p, Faction f) {
+		
+		// player is in random faction f ...
+    	// TODO check if player is permitted to build here !
+		// true <- he is not allowed
+		// false <- he is allowed
+		
+		return true;
+	}
 
 }			       
 
