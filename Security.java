@@ -28,8 +28,7 @@ public class Security extends JavaPlugin implements Listener{
 			        String name = ChatColor.stripColor(faction.getName());
 			        if(!name.equalsIgnoreCase("Wilderness") && !name.equalsIgnoreCase("SafeZone") && !name.equalsIgnoreCase("WarZone")) {
 			        	if(checkFaction(p, faction)) {
-			        		p.sendMessage(ChatColor.RED + "[EchoSecurity] You cant ride your Pet here.");
-			        	    e.getPet().removeRider();
+			        		p.setSneaking(true);
 			        	    e.setCancelled(true);
 			        	}
 			        }
@@ -57,12 +56,12 @@ public class Security extends JavaPlugin implements Listener{
 		
 	
 	private boolean checkFaction(Player p, Faction f) {
-		
-		// player is in random faction f ...
-    	// TODO check if player is permitted to build here !
-		// true <- he is not allowed
-		// false <- he is allowed
-		
+		//
+		// player (p) is in random faction (f) ...
+    	// TODO check if player is permitted to build in specified faction !
+		// return: true  if he is not allowed
+		// return: false if he is allowed
+		//
 		return true;
 	}
 
